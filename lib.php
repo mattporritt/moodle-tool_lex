@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Plugin version and other meta-data are defined here.
+ * Admin Tool Lex is defined here.
  *
  * @package     tool_lex
  * @copyright   2017 Matt Porritt <mattp@catalyst-au.net>
@@ -24,8 +24,16 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$plugin->component = 'tool_lex';
-$plugin->release = '2017073103';
-$plugin->version = 2017073103;
-$plugin->requires = 2017051500;
-$plugin->maturity = MATURITY_ALPHA;
+function tool_lex_before_standard_top_of_body_html() {
+    global $PAGE;
+
+    $renderable = new \tool_lex\output\main();
+    $renderer = $PAGE->get_renderer('tool_lex');
+
+    return $renderer->render($renderable);
+}
+
+function tool_lex_before_footer() {
+    global $PAGE;
+    $PAGE->requires->js_call_amd('tool_lex/help-slider', 'init');
+}
