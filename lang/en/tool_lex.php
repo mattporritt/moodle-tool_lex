@@ -26,3 +26,11 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['pluginname'] = 'Lex Interface';
+$string['pluginname_desc'] = 'AWS Lex based chatbot interface for Moodle';
+
+$string['awsregion'] = 'AWS Region';
+$string['awsregion_desc'] = 'The AWS region the Lex chatbot is in.';
+$string['chatbot'] = 'Chatbot name';
+$string['chatbot_desc'] = 'This is the name of the Lex chatbot to use with Moodle.';
+$string['poolid'] = 'Pool ID';
+$string['poolid_desc'] = 'The pool ID in AWS Cognitio to use to auth against.';

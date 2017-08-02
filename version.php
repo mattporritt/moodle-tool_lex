@@ -25,7 +25,7 @@
 defined('MOODLE_INTERNAL') || die();
 
 $plugin->component = 'tool_lex';
-$plugin->release = '2017073103';
-$plugin->version = 2017073103;
+$plugin->release = '2017080205';
+$plugin->version = 2017080205;
 $plugin->requires = 2017051500;
 $plugin->maturity = MATURITY_ALPHA;

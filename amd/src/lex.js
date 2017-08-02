@@ -26,15 +26,16 @@ define(['jquery', 'tool_lex/aws-sdk'], function($) {
 
     var Lex = {};
 
-    Lex.init = function() {
+    Lex.init = function(chatbot, poolid, awsregion) {
 
         // Initialize the Amazon Cognito credentials provider
-        AWS.config.region = 'us-east-1'; // Region
+        AWS.config.region = awsregion; // Region
         AWS.config.credentials = new AWS.CognitoIdentityCredentials({
         // Provide your Pool Id here
-            IdentityPoolId: '',
+            IdentityPoolId: poolid,
         });
 
+        var botname = chatbot;
         var lexruntime = new AWS.LexRuntime();
         var lexUserId = 'chatbot-demo' + Date.now();
         var sessionAttributes = {};
@@ -53,7 +54,7 @@ define(['jquery', 'tool_lex/aws-sdk'], function($) {
                 // send it to the Lex runtime
                 var params = {
                     botAlias: '$LATEST',
-                    botName: 'BookTrip',
+                    botName: botname,
                     inputText: wisdom,
                     userId: lexUserId,
                     sessionAttributes: sessionAttributes
