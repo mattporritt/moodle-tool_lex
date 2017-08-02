@@ -36,4 +36,5 @@ function tool_lex_before_standard_top_of_body_html() {
 function tool_lex_before_footer() {
     global $PAGE;
     $PAGE->requires->js_call_amd('tool_lex/help-slider', 'init');
+    $PAGE->requires->js_call_amd('tool_lex/lex', 'init');
 }

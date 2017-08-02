@@ -41,19 +41,11 @@
     </div>
     <div class="help-center-chat">
         <h5>How Can I Help?</h5>
-        <div class="chatbox">
-            <div class="chat-text">
-                <span class="bubble question">
-                    Why can't I submit my quiz?
-                </span>
-                <span class="bubble reply">
-                    You have exceeded your submission date.
-                </span>
-            </div>
-            <div class="chat-input">
-                <input type="text" placeholder="What do you want to ask?" class="form-control" />
-            </div>
-        </div>
+
+    <div id="conversation" style="width: 350px; height: 400px; border: 1px solid #ccc; background-color: #eee; padding: 4px; overflow: scroll"></div>
+    <form id="chatform" style="margin-top: 10px" onsubmit="">
+        <input type="text" id="wisdom" size="80" value="" placeholder="I need a hotel room">
+    </form>
     </div>
 
 </div>

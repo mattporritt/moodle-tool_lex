@@ -63,3 +63,48 @@
     z-index: 2;
     box-shadow: -4px 0px 8px rgba(0,0,0,.4); /* coordinates are pre rotation */
 }
+
+/* LEC Chatbot initial stuff */
+input#wisdom {
+            padding: 4px;
+            font-size: 1em;
+            width: 350px
+        }
+
+input::placeholder {
+            color: #ccc;
+            font-style: italic;
+        }
+
+p.userRequest {
+            margin: 4px;
+            padding: 4px 10px 4px 10px;
+            border-radius: 4px;
+            min-width: 50%;
+            max-width: 85%;
+            float: left;
+            background-color: #7d7;
+        }
+
+p.lexResponse {
+            margin: 4px;
+            padding: 4px 10px 4px 10px;
+            border-radius: 4px;
+            text-align: right;
+            min-width: 50%;
+            max-width: 85%;
+            float: right;
+            background-color: #bbf;
+            font-style: italic;
+        }
+
+p.lexError {
+            margin: 4px;
+            padding: 4px 10px 4px 10px;
+            border-radius: 4px;
+            text-align: right;
+            min-width: 50%;
+            max-width: 85%;
+            float: right;
+            background-color: #f77;
+        }
