@@ -16,7 +16,7 @@
 /**
  * Javascript controller for help slider.
  *
- * @module     tool_lex/help-slider
+ * @module     tool_lex/lex
  * @package    tool_lex
  * @copyright  2017 Matt Porritt <mattp@catalyst-au.net>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later

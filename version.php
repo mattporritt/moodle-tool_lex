@@ -29,3 +29,6 @@ $plugin->release = '2017080205';
 $plugin->version = 2017080205;
 $plugin->requires = 2017051500;
 $plugin->maturity = MATURITY_ALPHA;
+$plugin->dependencies = array(
+        'search_elastic' => 2017072300
+);
