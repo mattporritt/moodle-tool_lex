@@ -22,19 +22,29 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  * @since      3.1
  */
-define(['core/ajax'], function(ajax) {
+define(['core/ajax', 'core/templates'], function(ajax, templates) {
 
     var Search = {};
 
+    function renderResults(response) {
+        // This will call the function to load and render our template.
+        templates.render('core_search/result', response[0])
+        .then(function(html, js) { // It returns a promise that needs to be resolved.
+            // Here eventually I have my compiled template, and any javascript that it generated.
+            // The templates object has append, prepend and replace functions.
+            templates.appendNodeContents('#searchresults', html, js);
+        }).fail(function(ex) {
+            // Deal with this exception (I recommend core/notify exception function for this).
+        });
+    }
+
     Search.init = function() {
-        window.console.log('some test');
         var promises = ajax.call([
             { methodname: 'search_elastic_search', args: { q: '*', limit: '2' } }
         ]);
 
-       promises[0].done(function(response) {
-           window.console.log(response);
-       }).fail(function(ex) {
+       promises[0].done(renderResults)
+       .fail(function(ex) {
            window.console.log(ex);
        });
 
