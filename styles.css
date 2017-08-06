@@ -108,3 +108,7 @@ p.lexError {
             float: right;
             background-color: #f77;
         }
+#searchresults .result-title a{
+	font-size: 30px;
+	
+}

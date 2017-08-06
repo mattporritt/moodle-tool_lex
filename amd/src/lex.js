@@ -22,7 +22,7 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  * @since      3.1
  */
-define(['jquery', 'tool_lex/aws-sdk'], function($) {
+define(['jquery', 'tool_lex/search', 'tool_lex/aws-sdk'], function($, Search) {
 
     var Lex = {};
 
@@ -111,8 +111,11 @@ define(['jquery', 'tool_lex/aws-sdk'], function($) {
             }
             if (lexResponse.dialogState === 'ReadyForFulfillment') {
                 responsePara.appendChild(document.createTextNode(
-                    'Ready for fulfillment'));
-                // TODO:  show slot values
+                    'Looking for matches'));
+
+                Search.search(lexResponse.slots.SearchTerms);
+                window.console.log(lexResponse);
+                window.console.log(lexResponse.slots);
             } else {
                 responsePara.appendChild(document.createTextNode(
                     '(' + lexResponse.dialogState + ')'));

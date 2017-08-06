@@ -26,9 +26,9 @@ define(['core/ajax', 'core/templates'], function(ajax, templates) {
 
     var Search = {};
 
-    function renderResults(response) {
+    function renderResult(result) {
         // This will call the function to load and render our template.
-        templates.render('core_search/result', response[0])
+        templates.render('core_search/result', result)
         .then(function(html, js) { // It returns a promise that needs to be resolved.
             // Here eventually I have my compiled template, and any javascript that it generated.
             // The templates object has append, prepend and replace functions.
@@ -38,12 +38,18 @@ define(['core/ajax', 'core/templates'], function(ajax, templates) {
         });
     }
 
-    Search.init = function() {
+    function processResults(response) {
+        response.forEach(function(result) {
+            renderResult(result);
+        });
+    }
+
+    Search.search = function(query) {
         var promises = ajax.call([
-            { methodname: 'search_elastic_search', args: { q: '*', limit: '2' } }
+            { methodname: 'search_elastic_search', args: { q: query, limit: '2' } }
         ]);
 
-       promises[0].done(renderResults)
+       promises[0].done(processResults)
        .fail(function(ex) {
            window.console.log(ex);
        });

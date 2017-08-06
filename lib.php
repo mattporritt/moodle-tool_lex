@@ -41,5 +41,5 @@ function tool_lex_before_footer() {
 
     $PAGE->requires->js_call_amd('tool_lex/help-slider', 'init');
     $PAGE->requires->js_call_amd('tool_lex/lex', 'init', $botparams);
-    $PAGE->requires->js_call_amd('tool_lex/search', 'init');
+    //$PAGE->requires->js_call_amd('tool_lex/search', 'init');
 }
